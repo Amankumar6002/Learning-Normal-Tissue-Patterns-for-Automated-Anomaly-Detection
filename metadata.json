@@ -1,0 +1,5 @@
+{
+  "name": "Medical AI: VAE Anomaly Detection",
+  "description": "Automated anomaly detection in medical images using Variational Autoencoders (VAE). Upload a scan to see the original, reconstructed healthy version, and an anomaly heatmap.",
+  "requestFramePermissions": []
+}

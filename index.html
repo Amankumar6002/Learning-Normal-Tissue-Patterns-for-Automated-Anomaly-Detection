@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAI VAE Anomaly Detection</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="hero-header">
+            <div class="hero-brand">
+                <div class="logo-circle">M</div>
+                <div>
+                    <p class="eyebrow">MedAI VAE</p>
+                    <p class="subtext">Anomaly Detection System</p>
+                </div>
+            </div>
+            <div class="model-chip">Model: Simulated</div>
+        </header>
+
+        <main class="content">
+            <section class="hero-copy">
+                <h1>Learning Normal Tissue Patterns for Automated Anomaly Detection</h1>
+                <p>This project uses a Variational Autoencoder trained on healthy medical scans. The model learns normal tissue patterns, reconstructs a healthy version of the input image, and highlights anomalies as a heatmap.</p>
+            </section>
+
+            <section class="dashboard-grid">
+                <article class="card upload-card">
+                    <div class="card-header">
+                        <div>
+                            <p class="card-title">Upload Scan</p>
+                            <p class="card-note">Select a lung or brain scan image</p>
+                        </div>
+                    </div>
+                    <label class="upload-box" for="image-upload" id="upload-box">
+                        <span class="upload-icon">⇪</span>
+                        <p class="upload-text">Click to choose or change image</p>
+                        <img id="preview-img" alt="Preview" class="preview-img" />
+                    </label>
+                    <input type="file" id="image-upload" accept="image/*" hidden>
+                    <button id="process-btn" class="primary-btn">Run Analysis</button>
+                    <p id="error-msg" class="error-msg">Please select an image first.</p>
+                </article>
+
+                <article class="card status-card">
+                    <div class="status-card-top">
+                        <p class="card-title">Analysis Results</p>
+                        <span class="status-badge" id="status-badge">Completed</span>
+                    </div>
+                    <p class="status-description" id="analysis-status">Upload an image to begin anomaly detection.</p>
+                    <p class="status-details" id="analysis-detail">The model will compare the input scan to learned healthy tissue patterns.</p>
+                    <div class="score-card">
+                        <p class="score-label">Anomaly Score</p>
+                        <p class="score-value" id="score-value">0.0%</p>
+                    </div>
+                </article>
+            </section>
+
+            <section class="results-grid" id="output-section" style="display: none;">
+                <article class="result-card">
+                    <div class="result-label">Original Scan</div>
+                    <img id="original-img" alt="Original Scan" class="result-image">
+                </article>
+                <article class="result-card">
+                    <div class="result-label">Reconstructed</div>
+                    <img id="reconstructed-img" alt="Reconstructed Scan" class="result-image">
+                </article>
+                <article class="result-card heatmap-card">
+                    <div class="result-label">Anomaly Heatmap</div>
+                    <img id="heatmap-img" alt="Anomaly Heatmap" class="result-image">
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
